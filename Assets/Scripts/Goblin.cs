@@ -85,14 +85,13 @@ public class Goblin : MonoBehaviour
             distanciaLanzamiento += Time.deltaTime * Global.VelocidadLanzamiento;
             for (int i = 0; i < puntosTrayectoriaSuelo.Length; i++)
             {
-                puntosTrayectoriaSuelo[i] = transform.position + (i * modelo.forward.normalized * distanciaLanzamiento / puntosTrayectoriaSuelo.Length);
+                puntosTrayectoriaSuelo[i] = transform.position + (i * modelo.forward.normalized * distanciaLanzamiento / (puntosTrayectoriaSuelo.Length - 1));
 
                 float d = Vector3.Distance(transform.position, puntosTrayectoriaSuelo[i]);
                 if (d > distanciaLanzamiento / 2)
                     d = distanciaLanzamiento - d;
                 d /= (distanciaLanzamiento / 2);
-
-                puntosTrayectoriaSuelo[i].y = 2 * Mathf.Sin(d);
+                puntosTrayectoriaSuelo[i].y = 2 * Mathf.Sin(d * Mathf.PI / 2) * (distanciaLanzamiento/4);
             }
 
             lr.SetPositions(puntosTrayectoriaSuelo);
@@ -102,6 +101,10 @@ public class Goblin : MonoBehaviour
 
         if (Input.GetButtonUp(nombresInput.BOTON_A))
         {
+            // lanzo
+            Proyectil p = Instantiate(Gestor.instancia.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
+            p.Lanzar();
+
             apuntando = false;
             distanciaLanzamiento = 0;
             lr.startColor = new Color(0, 0, 0, 0);

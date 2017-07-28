@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Gestor : MonoBehaviour
 {
-    private static Gestor instance;
+    public static Gestor instancia { get; private set; }
+
+    public GameObject prefabProyectil;
 
     void Awake()
     {
-        instance = this;
+        instancia = this;
     }
 }
