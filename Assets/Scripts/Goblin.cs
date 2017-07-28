@@ -10,26 +10,46 @@ public class Goblin : MonoBehaviour
         DOS
     }
 
+    public struct NombresInput
+    {
+        public string EJE_HORIZONTAL;
+        public string EJE_VERTICAL;
+        public string BOTON_A;
+        public string BOTON_B;
+    }
+
     public Jugador jugador;
 
     private CharacterController cc;
+    private NombresInput nombresInput;
+    private Transform modelo;
 
     private void Start()
     {
         cc = GetComponent<CharacterController>();
+        nombresInput = new NombresInput();
+
+        if(jugador == Jugador.UNO)
+        {
+            nombresInput.EJE_HORIZONTAL = "Horizontal";
+            nombresInput.EJE_VERTICAL = "Vertical";
+            nombresInput.BOTON_A = "Fire";
+            nombresInput.BOTON_B = "Jump";
+        }
+        if(jugador == Jugador.DOS)
+        {
+            nombresInput.EJE_HORIZONTAL = "Horizontal2";
+            nombresInput.EJE_VERTICAL = "Vertical2";
+            nombresInput.BOTON_A = "Fire2";
+            nombresInput.BOTON_B = "Jump2";
+        }
+
+        modelo = transform.Find("Modelo");
     }
 
     private void Update()
     {
-        Debug.Log("Horizontal " + Input.GetAxisRaw("Horizontal"));
-        Debug.Log("Vertical " + Input.GetAxisRaw("Vertical"));
-        Debug.Log("Horizontal2 " + Input.GetAxisRaw("Horizontal2"));
-        Debug.Log("Vertical2 " + Input.GetAxisRaw("Vertical2"));
-
-    }
-
-    private void FixedUpdate()
-    {
-        cc.Move(Vector3.right * Time.fixedDeltaTime);
+        cc.Move(Global.VelocidadMovimiento * Vector3.right * Time.deltaTime * Input.GetAxisRaw(nombresInput.EJE_HORIZONTAL));
+        cc.Move(Global.VelocidadMovimiento * Vector3.forward * Time.deltaTime * Input.GetAxisRaw(nombresInput.EJE_VERTICAL));
     }
 }
