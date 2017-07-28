@@ -19,12 +19,15 @@ public class Goblin : MonoBehaviour
     }
 
     public Jugador jugador;
-    public float distanciaTest = 2;
 
     private CharacterController cc;
     private NombresInput nombresInput;
     private Transform modelo;
-    private Vector3[] puntosTrayectoriaSuelo = new Vector3[5];
+
+    private float distanciaLanzamiento = 0;
+    private bool apuntando = false;
+    private LineRenderer lr;
+    private Vector3[] puntosTrayectoriaSuelo = new Vector3[10];
 
     private void Start()
     {
@@ -47,6 +50,10 @@ public class Goblin : MonoBehaviour
         }
 
         modelo = transform.Find("Modelo");
+        lr = GetComponent<LineRenderer>();
+        lr.positionCount = puntosTrayectoriaSuelo.Length;
+        lr.startColor = new Color(0, 0, 0, 0);
+        lr.endColor = new Color(0, 0, 0, 0);
     }
 
     private void Update()
@@ -62,16 +69,43 @@ public class Goblin : MonoBehaviour
         {
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion, Vector3.up);
             if (modelo)
-                modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacion);
+            {
+                if(apuntando)
+                    modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacionApuntando);
+                else
+                    modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacion);
+            }
         }
 
-        if(Input.GetButton(nombresInput.BOTON_A))
+        if (Input.GetButtonDown(nombresInput.BOTON_A))
+            apuntando = true;
+
+        if(apuntando)
         {
-            Debug.Log("OK");
+            distanciaLanzamiento += Time.deltaTime * Global.VelocidadLanzamiento;
             for (int i = 0; i < puntosTrayectoriaSuelo.Length; i++)
             {
-                puntosTrayectoriaSuelo[i] = transform.position + (i * transform.position.normalized * distanciaTest / puntosTrayectoriaSuelo.Length);
+                puntosTrayectoriaSuelo[i] = transform.position + (i * modelo.forward.normalized * distanciaLanzamiento / puntosTrayectoriaSuelo.Length);
+
+                float d = Vector3.Distance(transform.position, puntosTrayectoriaSuelo[i]);
+                if (d > distanciaLanzamiento / 2)
+                    d = distanciaLanzamiento - d;
+                d /= (distanciaLanzamiento / 2);
+
+                puntosTrayectoriaSuelo[i].y = 2 * Mathf.Sin(d);
             }
+
+            lr.SetPositions(puntosTrayectoriaSuelo);
+            lr.startColor = new Color(1, 1, 1, 0.2f);
+            lr.endColor = new Color(1, 1, 1, 0.2f);
+        }
+
+        if (Input.GetButtonUp(nombresInput.BOTON_A))
+        {
+            apuntando = false;
+            distanciaLanzamiento = 0;
+            lr.startColor = new Color(0, 0, 0, 0);
+            lr.endColor = new Color(0, 0, 0, 0);
         }
     }
 }
