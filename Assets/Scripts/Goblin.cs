@@ -19,10 +19,12 @@ public class Goblin : MonoBehaviour
     }
 
     public Jugador jugador;
+    public float distanciaTest = 2;
 
     private CharacterController cc;
     private NombresInput nombresInput;
     private Transform modelo;
+    private Vector3[] puntosTrayectoriaSuelo = new Vector3[5];
 
     private void Start()
     {
@@ -49,7 +51,27 @@ public class Goblin : MonoBehaviour
 
     private void Update()
     {
-        cc.Move(Global.VelocidadMovimiento * Vector3.right * Time.deltaTime * Input.GetAxisRaw(nombresInput.EJE_HORIZONTAL));
-        cc.Move(Global.VelocidadMovimiento * Vector3.forward * Time.deltaTime * Input.GetAxisRaw(nombresInput.EJE_VERTICAL));
+        // movimiento direccional
+        Vector3 direccion = Vector3.zero;
+        direccion.x = Input.GetAxisRaw(nombresInput.EJE_HORIZONTAL);
+        direccion.z = Input.GetAxisRaw(nombresInput.EJE_VERTICAL);
+        cc.Move(direccion * Time.deltaTime * Global.VelocidadMovimiento);
+
+        // rotacion del modelo
+        if(direccion != Vector3.zero)
+        {
+            Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion, Vector3.up);
+            if (modelo)
+                modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacion);
+        }
+
+        if(Input.GetButton(nombresInput.BOTON_A))
+        {
+            Debug.Log("OK");
+            for (int i = 0; i < puntosTrayectoriaSuelo.Length; i++)
+            {
+                puntosTrayectoriaSuelo[i] = transform.position + (i * transform.position.normalized * distanciaTest / puntosTrayectoriaSuelo.Length);
+            }
+        }
     }
 }
