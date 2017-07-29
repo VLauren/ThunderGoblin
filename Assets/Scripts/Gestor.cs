@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Gestor : MonoBehaviour
 {
@@ -49,5 +50,16 @@ public class Gestor : MonoBehaviour
     public static void DesactivarRayos()
     {
         instance.rayosActivos = false;
+    }
+
+    public static void TerminarRonda()
+    {
+        instance.Invoke("ReiniciarEscena", 1);
+    }
+
+    // HACK
+    public void ReiniciarEscena()
+    {
+        SceneManager.LoadScene(0);
     }
 }

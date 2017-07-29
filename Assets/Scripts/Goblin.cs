@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Goblin : MonoBehaviour
 {
@@ -24,12 +25,16 @@ public class Goblin : MonoBehaviour
     private NombresInput nombresInput;
     private Transform modelo;
 
-    private float distanciaLanzamiento = 2;
+    private float distanciaLanzamiento = 5;
     private bool apuntando = false;
     private LineRenderer lr;
     private Vector3[] puntosTrayectoriaSuelo = new Vector3[10];
 
     private GameObject circulo;
+
+    private bool rodando = false;
+    private Vector3 direccionRodar;
+    private float tInicioRodar;
 
     private void Start()
     {
@@ -60,10 +65,21 @@ public class Goblin : MonoBehaviour
 
     private void Update()
     {
+        if(rodando)
+        {
+            cc.Move(direccionRodar * Time.deltaTime * Global.VelocidadRodar);
+
+            if (Time.time - tInicioRodar > Global.TiempoRodar)
+                rodando = false;
+
+            return;
+        }
+
         // movimiento direccional
         Vector3 direccion = Vector3.zero;
         direccion.x = Input.GetAxisRaw(nombresInput.EJE_HORIZONTAL);
         direccion.z = Input.GetAxisRaw(nombresInput.EJE_VERTICAL);
+        direccion.Normalize();
         if(!apuntando)
             cc.Move(direccion * Time.deltaTime * Global.VelocidadMovimiento);
 
@@ -117,17 +133,27 @@ public class Goblin : MonoBehaviour
             p.Lanzar(modelo.forward, distanciaLanzamiento, jugador);
 
             apuntando = false;
-            distanciaLanzamiento = 0;
+            distanciaLanzamiento = 5;
             lr.startColor = new Color(0, 0, 0, 0);
             lr.endColor = new Color(0, 0, 0, 0);
 
             Destroy(circulo);
+        }
+
+        if (Input.GetButtonUp(nombresInput.BOTON_B))
+        {
+            tInicioRodar = Time.time;
+            modelo.rotation = Quaternion.LookRotation(direccion, Vector3.up);
+            direccionRodar = direccion;
+            rodando = true;
         }
     }
 
     public void Morir()
     {
         Debug.Log("MUERTE jugador " + jugador);
+        Gestor.TerminarRonda();
         Destroy(gameObject);
     }
+
 }
