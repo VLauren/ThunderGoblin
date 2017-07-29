@@ -16,7 +16,7 @@ public class Pararrayos : MonoBehaviour
     private void RecibirRayo()
     {
         // efectos
-        Instantiate(GestorJuego.instance.prefabRayoA, transform.position, Quaternion.Euler(90,0,0));
+        Instantiate(GestorJuego.instance.prefabRayoA, transform.Find("PuntoImpacto").position, Quaternion.Euler(90,0,0));
         Instantiate(GestorJuego.instance.prefabRayoB, transform.position, Quaternion.identity);
 
         // matar
