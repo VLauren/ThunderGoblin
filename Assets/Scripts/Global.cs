@@ -9,4 +9,6 @@ public class Global
     public const float VelocidadRotacion = 360f;
     public const float VelocidadRotacionApuntando = 90f;
     public const float VelocidadLanzamiento = 8f;
+
+    public const float VelocidadProyectil = 30f;
 }

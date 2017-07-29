@@ -24,10 +24,12 @@ public class Goblin : MonoBehaviour
     private NombresInput nombresInput;
     private Transform modelo;
 
-    private float distanciaLanzamiento = 0;
+    private float distanciaLanzamiento = 2;
     private bool apuntando = false;
     private LineRenderer lr;
     private Vector3[] puntosTrayectoriaSuelo = new Vector3[10];
+
+    private GameObject circulo;
 
     private void Start()
     {
@@ -77,8 +79,14 @@ public class Goblin : MonoBehaviour
             }
         }
 
+        // ==========================
+        //  Lanzamiento
+
         if (Input.GetButtonDown(nombresInput.BOTON_A))
+        {
             apuntando = true;
+            circulo = Instantiate(Gestor.instance.prefabCirculo, transform.position, Quaternion.Euler(90, 0, 0));
+        }
 
         if(apuntando)
         {
@@ -97,18 +105,22 @@ public class Goblin : MonoBehaviour
             lr.SetPositions(puntosTrayectoriaSuelo);
             lr.startColor = new Color(1, 1, 1, 0.2f);
             lr.endColor = new Color(1, 1, 1, 0.2f);
+
+            circulo.transform.position = puntosTrayectoriaSuelo[puntosTrayectoriaSuelo.Length - 1] + Vector3.up * 1;
         }
 
         if (Input.GetButtonUp(nombresInput.BOTON_A))
         {
             // lanzo
-            Proyectil p = Instantiate(Gestor.instancia.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
-            p.Lanzar();
+            Proyectil p = Instantiate(Gestor.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
+            p.Lanzar(modelo.forward, distanciaLanzamiento);
 
             apuntando = false;
             distanciaLanzamiento = 0;
             lr.startColor = new Color(0, 0, 0, 0);
             lr.endColor = new Color(0, 0, 0, 0);
+
+            Destroy(circulo);
         }
     }
 }
