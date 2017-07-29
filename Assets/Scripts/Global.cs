@@ -13,7 +13,7 @@ public class Global
     public const float VelocidadProyectil = 30f;
 
     public const float VelocidadRodar = 17;
-    public const float TiempoRodar = 0.4f;
+    public const float TiempoRodar = 0.35f;
 
     public const float PeriodoRayo = 4;
     public const float AlcanceRayo = 5;

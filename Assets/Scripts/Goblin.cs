@@ -140,6 +140,7 @@ public class Goblin : MonoBehaviour
         if (Input.GetButtonUp(nombresInput.BOTON_A))
         {
             // lanzo
+            /*
             Proyectil p = Instantiate(GestorJuego.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
             p.Lanzar(modelo.forward, distanciaLanzamiento, jugador);
 
@@ -151,6 +152,8 @@ public class Goblin : MonoBehaviour
             Destroy(circulo);
 
             animator.SetTrigger("Lanzar");
+            */
+            StartCoroutine(Lanzar());
         }
 
         if (Input.GetButtonUp(nombresInput.BOTON_B))
@@ -163,6 +166,23 @@ public class Goblin : MonoBehaviour
         }
     }
 
+    IEnumerator Lanzar()
+    {
+        animator.SetTrigger("Lanzar");
+        yield return new WaitForSeconds(0.2f);
+
+        Proyectil p = Instantiate(GestorJuego.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
+        p.Lanzar(modelo.forward, distanciaLanzamiento, jugador);
+
+        apuntando = false;
+        distanciaLanzamiento = 5;
+        lr.startColor = new Color(0, 0, 0, 0);
+        lr.endColor = new Color(0, 0, 0, 0);
+
+        Destroy(circulo);
+
+    }
+
     public void Morir()
     {
         Debug.Log("MUERTE jugador " + jugador);
@@ -170,4 +190,8 @@ public class Goblin : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Lanzamiento()
+    {
+        Debug.Log("qwe");
+    }
 }
