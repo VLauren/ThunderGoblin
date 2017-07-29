@@ -38,6 +38,8 @@ public class Goblin : MonoBehaviour
 
     private Animator animator;
 
+    private float reutilizacion = 1;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -109,14 +111,15 @@ public class Goblin : MonoBehaviour
         // ==========================
         //  Lanzamiento
 
-        if (Input.GetButtonDown(nombresInput.BOTON_A))
+        if (Input.GetButtonDown(nombresInput.BOTON_A) && reutilizacion <= 0)
         {
             apuntando = true;
             circulo = Instantiate(GestorJuego.instance.prefabCirculo, transform.position, Quaternion.Euler(90, 0, 0));
             animator.SetTrigger("IniciarLanzamiento");
+            reutilizacion = 20;
         }
 
-        if(apuntando)
+        if (apuntando)
         {
             distanciaLanzamiento += Time.deltaTime * Global.VelocidadLanzamiento;
             for (int i = 0; i < puntosTrayectoriaSuelo.Length; i++)
@@ -137,7 +140,7 @@ public class Goblin : MonoBehaviour
             circulo.transform.position = puntosTrayectoriaSuelo[puntosTrayectoriaSuelo.Length - 1] + Vector3.up * 1;
         }
 
-        if (Input.GetButtonUp(nombresInput.BOTON_A))
+        if (apuntando && Input.GetButtonUp(nombresInput.BOTON_A))
         {
             // lanzo
             /*
@@ -153,7 +156,7 @@ public class Goblin : MonoBehaviour
 
             animator.SetTrigger("Lanzar");
             */
-            StartCoroutine(Lanzar());
+                StartCoroutine(Lanzar());
         }
 
         if (Input.GetButtonUp(nombresInput.BOTON_B))
@@ -164,10 +167,14 @@ public class Goblin : MonoBehaviour
             rodando = true;
             animator.SetBool("Rodando", true);
         }
+
+        if (reutilizacion > 0)
+            reutilizacion -= Time.deltaTime;
     }
 
     IEnumerator Lanzar()
     {
+        reutilizacion = Global.TiempoReutilizacion;
         animator.SetTrigger("Lanzar");
         yield return new WaitForSeconds(0.2f);
 

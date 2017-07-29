@@ -21,6 +21,7 @@ public class GestorJuego : MonoBehaviour
 
     private float tiempoUltimoRayo = 0;
     private bool rayosActivos;
+    private bool rondaAcabada = false;
 
     void Awake()
     {
@@ -54,7 +55,11 @@ public class GestorJuego : MonoBehaviour
 
     public static void TerminarRonda()
     {
-        instance.Invoke("ReiniciarEscena", 1);
+        if(!instance.rondaAcabada)
+        {
+            instance.rondaAcabada = true;
+            instance.Invoke("ReiniciarEscena", 1);
+        }
     }
 
     public void ReiniciarEscena()
@@ -68,5 +73,6 @@ public class GestorJuego : MonoBehaviour
         SceneManager.UnloadScene("Juego");
         SceneManager.LoadScene("Juego", LoadSceneMode.Additive);
         ActivarRayos();
+        rondaAcabada = false;
     }
 }

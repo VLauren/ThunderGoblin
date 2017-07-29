@@ -17,4 +17,6 @@ public class Global
 
     public const float PeriodoRayo = 4;
     public const float AlcanceRayo = 5;
+
+    public const float TiempoReutilizacion = 1;
 }
