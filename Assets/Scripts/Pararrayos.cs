@@ -15,6 +15,13 @@ public class Pararrayos : MonoBehaviour
 
     private void RecibirRayo()
     {
+        StartCoroutine(Rayazo());
+    }
+
+    IEnumerator Rayazo()
+    {
+        yield return new WaitForSeconds(Random.value * 0.2f);
+
         // efectos
         Instantiate(GestorJuego.instance.prefabRayoA, transform.Find("PuntoImpacto").position, Quaternion.Euler(90,0,0));
         Instantiate(GestorJuego.instance.prefabRayoB, transform.position, Quaternion.identity);
