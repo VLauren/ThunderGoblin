@@ -10,6 +10,8 @@ public class Proyectil : MonoBehaviour
     private Vector3 puntoFinal;
 
     private Vector3 puntoActual;
+    private Vector3 puntoAnterior;
+    private Vector3 UltimoPunto;
     private float distanciaLanzamiento;
     
     public void Lanzar(Vector3 direccion, float distancia, Goblin.Jugador jug)
@@ -28,21 +30,31 @@ public class Proyectil : MonoBehaviour
         if(puntoActual != puntoFinal)
         {
             puntoActual = Vector3.MoveTowards(puntoActual, puntoFinal, Time.deltaTime * Global.VelocidadProyectil);
+            puntoAnterior = transform.position;
             transform.position = puntoActual;
 
             float d = Vector3.Distance(puntoInicial, puntoActual);
             if (d > distanciaLanzamiento / 2)
+            {
+                GetComponent<Rigidbody>().isKinematic = false; 
                 d = distanciaLanzamiento - d;
+            }
             d /= (distanciaLanzamiento / 2);
             float altura = 2 * Mathf.Sin(d * Mathf.PI / 2) * (distanciaLanzamiento / 4);
 
             transform.position = new Vector3(transform.position.x, altura + 1, transform.position.z);
+            UltimoPunto = transform.position;
         }
         // he llegado
         else
         {
-            Instantiate(GestorJuego.instance.prefabPararrayos, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            GetComponent<Rigidbody>().velocity = (UltimoPunto - puntoAnterior).normalized * 20;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Instantiate(GestorJuego.instance.prefabPararrayos, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
