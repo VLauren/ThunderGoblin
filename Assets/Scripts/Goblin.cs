@@ -102,7 +102,7 @@ public class Goblin : MonoBehaviour
         if (Input.GetButtonDown(nombresInput.BOTON_A))
         {
             apuntando = true;
-            circulo = Instantiate(Gestor.instance.prefabCirculo, transform.position, Quaternion.Euler(90, 0, 0));
+            circulo = Instantiate(GestorJuego.instance.prefabCirculo, transform.position, Quaternion.Euler(90, 0, 0));
         }
 
         if(apuntando)
@@ -129,7 +129,7 @@ public class Goblin : MonoBehaviour
         if (Input.GetButtonUp(nombresInput.BOTON_A))
         {
             // lanzo
-            Proyectil p = Instantiate(Gestor.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
+            Proyectil p = Instantiate(GestorJuego.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
             p.Lanzar(modelo.forward, distanciaLanzamiento, jugador);
 
             apuntando = false;
@@ -152,7 +152,7 @@ public class Goblin : MonoBehaviour
     public void Morir()
     {
         Debug.Log("MUERTE jugador " + jugador);
-        Gestor.TerminarRonda();
+        GestorJuego.TerminarRonda();
         Destroy(gameObject);
     }
 

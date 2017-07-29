@@ -41,7 +41,7 @@ public class Proyectil : MonoBehaviour
         // he llegado
         else
         {
-            Instantiate(Gestor.instance.prefabPararrayos, transform.position, Quaternion.identity);
+            Instantiate(GestorJuego.instance.prefabPararrayos, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

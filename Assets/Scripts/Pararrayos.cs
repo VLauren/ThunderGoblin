@@ -8,15 +8,15 @@ public class Pararrayos : MonoBehaviour
     
     private void Start()
     {
-        Gestor.instance.OnRayo += RecibirRayo;
+        GestorJuego.instance.OnRayo += RecibirRayo;
         goblins = FindObjectsOfType<Goblin>();
     }
 
     private void RecibirRayo()
     {
         // efectos
-        Instantiate(Gestor.instance.prefabRayoA, transform.position, Quaternion.Euler(90,0,0));
-        Instantiate(Gestor.instance.prefabRayoB, transform.position, Quaternion.identity);
+        Instantiate(GestorJuego.instance.prefabRayoA, transform.position, Quaternion.Euler(90,0,0));
+        Instantiate(GestorJuego.instance.prefabRayoB, transform.position, Quaternion.identity);
 
         // matar
         foreach (Goblin g in goblins)

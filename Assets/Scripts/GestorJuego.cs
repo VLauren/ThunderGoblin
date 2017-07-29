@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Gestor : MonoBehaviour
+public class GestorJuego : MonoBehaviour
 {
     public delegate void OnRayoCall();
 
-    public static Gestor instance { get; private set; }
+    public static GestorJuego instance { get; private set; }
 
     public OnRayoCall OnRayo;
 
@@ -61,5 +61,6 @@ public class Gestor : MonoBehaviour
     public void ReiniciarEscena()
     {
         SceneManager.LoadScene(0);
+        ActivarRayos();
     }
 }
