@@ -1,16 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Menu : MonoBehaviour {
+public class Menu : MonoBehaviour
+{
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            SceneManager.LoadScene("Juego", LoadSceneMode.Additive);
+            SceneManager.UnloadScene("Menu");
+            GestorJuego.ActivarRayos();
+        }
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

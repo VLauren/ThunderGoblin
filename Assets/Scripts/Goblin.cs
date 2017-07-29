@@ -36,6 +36,8 @@ public class Goblin : MonoBehaviour
     private Vector3 direccionRodar;
     private float tInicioRodar;
 
+    private Animator animator;
+
     private void Start()
     {
         cc = GetComponent<CharacterController>();

@@ -10,6 +10,7 @@ public class Pararrayos : MonoBehaviour
     {
         GestorJuego.instance.OnRayo += RecibirRayo;
         goblins = FindObjectsOfType<Goblin>();
+        GestorJuego.instance.OnReload += Destruir;
     }
 
     private void RecibirRayo()
@@ -21,6 +22,11 @@ public class Pararrayos : MonoBehaviour
         // matar
         foreach (Goblin g in goblins)
             if (g != null && Vector3.Distance(transform.position, g.transform.position) < Global.AlcanceRayo)
-                g.Morir(); ;
+                g.Morir(); 
+    }
+
+    private void Destruir()
+    {
+        Destroy(gameObject);
     }
 }

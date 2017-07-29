@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GestorJuego : MonoBehaviour
 {
-    public delegate void OnRayoCall();
+    public delegate void VoidCall();
 
     public static GestorJuego instance { get; private set; }
 
-    public OnRayoCall OnRayo;
+    public VoidCall OnRayo;
+    public VoidCall OnReload;
 
     public GameObject prefabProyectil;
     public GameObject prefabCirculo;
@@ -28,8 +29,7 @@ public class GestorJuego : MonoBehaviour
 
     private void Start()
     {
-        // por ahora se activa na mas empezar
-        ActivarRayos();
+        SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
     }
 
     private void Update()
@@ -57,10 +57,16 @@ public class GestorJuego : MonoBehaviour
         instance.Invoke("ReiniciarEscena", 1);
     }
 
-    // HACK
     public void ReiniciarEscena()
     {
-        SceneManager.LoadScene(0);
+        if (OnReload != null)
+            OnReload();
+
+        OnRayo = null;
+        OnReload = null;
+
+        SceneManager.UnloadScene("Juego");
+        SceneManager.LoadScene("Juego", LoadSceneMode.Additive);
         ActivarRayos();
     }
 }
