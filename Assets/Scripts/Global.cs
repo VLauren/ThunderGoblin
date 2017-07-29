@@ -11,4 +11,6 @@ public class Global
     public const float VelocidadLanzamiento = 8f;
 
     public const float VelocidadProyectil = 30f;
+
+    public const float PeriodoRayo = 4;
 }

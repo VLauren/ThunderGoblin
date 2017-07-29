@@ -64,10 +64,11 @@ public class Goblin : MonoBehaviour
         Vector3 direccion = Vector3.zero;
         direccion.x = Input.GetAxisRaw(nombresInput.EJE_HORIZONTAL);
         direccion.z = Input.GetAxisRaw(nombresInput.EJE_VERTICAL);
-        cc.Move(direccion * Time.deltaTime * Global.VelocidadMovimiento);
+        if(!apuntando)
+            cc.Move(direccion * Time.deltaTime * Global.VelocidadMovimiento);
 
         // rotacion del modelo
-        if(direccion != Vector3.zero)
+        if (direccion != Vector3.zero)
         {
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion, Vector3.up);
             if (modelo)
@@ -113,7 +114,7 @@ public class Goblin : MonoBehaviour
         {
             // lanzo
             Proyectil p = Instantiate(Gestor.instance.prefabProyectil, transform.position, Quaternion.identity).GetComponent<Proyectil>();
-            p.Lanzar(modelo.forward, distanciaLanzamiento);
+            p.Lanzar(modelo.forward, distanciaLanzamiento, jugador);
 
             apuntando = false;
             distanciaLanzamiento = 0;
