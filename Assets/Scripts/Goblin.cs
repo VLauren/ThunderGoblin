@@ -180,7 +180,6 @@ public class Goblin : MonoBehaviour
         lr.endColor = new Color(0, 0, 0, 0);
 
         Destroy(circulo);
-
     }
 
     public void Morir()
@@ -188,10 +187,5 @@ public class Goblin : MonoBehaviour
         Debug.Log("MUERTE jugador " + jugador);
         GestorJuego.TerminarRonda();
         Destroy(gameObject);
-    }
-
-    public void Lanzamiento()
-    {
-        Debug.Log("qwe");
     }
 }
