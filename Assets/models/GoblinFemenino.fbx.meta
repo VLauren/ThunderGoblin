@@ -1,0 +1,224 @@
+fileFormatVersion: 2
+guid: 0a24e6ed816b5be44ba5c6d7096f00c0
+timeCreated: 1501364262
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Anular1.L
+    100002: Anular1.R
+    100004: Anular2.L
+    100006: Anular2.L_end
+    100008: Anular2.R
+    100010: Anular2.R_end
+    100012: Base
+    100014: BodyFemenino
+    100016: Botas
+    100018: Brazo.L
+    100020: Brazo.R
+    100022: Codo.L
+    100024: Codo.L_end
+    100026: Codo.R
+    100028: Codo.R_end
+    100030: Corazon1.L
+    100032: Corazon1.R
+    100034: Corazon2.L
+    100036: Corazon2.L_end
+    100038: Corazon2.R
+    100040: Corazon2.R_end
+    100042: Esqueleto
+    100044: //RootNode
+    100046: Gorrito
+    100048: Head
+    100050: Head_end
+    100052: Hombro.L
+    100054: Hombro.R
+    100056: Indice1.L
+    100058: Indice1.R
+    100060: Indice2.L
+    100062: Indice2.L_end
+    100064: Indice2.R
+    100066: Indice2.R_end
+    100068: ManoIK.L
+    100070: ManoIK.R
+    100072: Muslo.L
+    100074: Muslo.R
+    100076: Neck
+    100078: Peto
+    100080: Pie.L
+    100082: Pie.L_end
+    100084: Pie.R
+    100086: Pie.R_end
+    100088: PieIK.L
+    100090: PieIK.R
+    100092: Pierna.L
+    100094: Pierna.R
+    100096: Pinky1.L
+    100098: Pinky1.R
+    100100: Pinky2.L
+    100102: Pinky2.L_end
+    100104: Pinky2.R
+    100106: Pinky2.R_end
+    100108: Pulgar1.L
+    100110: Pulgar1.R
+    100112: Pulgar2.L
+    100114: Pulgar2.L_end
+    100116: Pulgar2.R
+    100118: Pulgar2.R_end
+    100120: Rodilla.L
+    100122: Rodilla.L_end
+    100124: Rodilla.R
+    100126: Rodilla.R_end
+    100128: Root
+    100130: Spine
+    100132: Tatatotos
+    400000: Anular1.L
+    400002: Anular1.R
+    400004: Anular2.L
+    400006: Anular2.L_end
+    400008: Anular2.R
+    400010: Anular2.R_end
+    400012: Base
+    400014: BodyFemenino
+    400016: Botas
+    400018: Brazo.L
+    400020: Brazo.R
+    400022: Codo.L
+    400024: Codo.L_end
+    400026: Codo.R
+    400028: Codo.R_end
+    400030: Corazon1.L
+    400032: Corazon1.R
+    400034: Corazon2.L
+    400036: Corazon2.L_end
+    400038: Corazon2.R
+    400040: Corazon2.R_end
+    400042: Esqueleto
+    400044: //RootNode
+    400046: Gorrito
+    400048: Head
+    400050: Head_end
+    400052: Hombro.L
+    400054: Hombro.R
+    400056: Indice1.L
+    400058: Indice1.R
+    400060: Indice2.L
+    400062: Indice2.L_end
+    400064: Indice2.R
+    400066: Indice2.R_end
+    400068: ManoIK.L
+    400070: ManoIK.R
+    400072: Muslo.L
+    400074: Muslo.R
+    400076: Neck
+    400078: Peto
+    400080: Pie.L
+    400082: Pie.L_end
+    400084: Pie.R
+    400086: Pie.R_end
+    400088: PieIK.L
+    400090: PieIK.R
+    400092: Pierna.L
+    400094: Pierna.R
+    400096: Pinky1.L
+    400098: Pinky1.R
+    400100: Pinky2.L
+    400102: Pinky2.L_end
+    400104: Pinky2.R
+    400106: Pinky2.R_end
+    400108: Pulgar1.L
+    400110: Pulgar1.R
+    400112: Pulgar2.L
+    400114: Pulgar2.L_end
+    400116: Pulgar2.R
+    400118: Pulgar2.R_end
+    400120: Rodilla.L
+    400122: Rodilla.L_end
+    400124: Rodilla.R
+    400126: Rodilla.R_end
+    400128: Root
+    400130: Spine
+    400132: Tatatotos
+    2300000: Gorrito
+    3300000: Gorrito
+    4300000: Gorrito
+    4300002: Peto
+    4300004: BodyFemenino
+    4300006: Tatatotos
+    4300008: Botas
+    7400000: Esqueleto|EsqueletoAction.002
+    9500000: //RootNode
+    13700000: BodyFemenino
+    13700002: Botas
+    13700004: Peto
+    13700006: Tatatotos
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
