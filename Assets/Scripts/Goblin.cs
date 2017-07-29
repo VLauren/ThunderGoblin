@@ -59,6 +59,7 @@ public class Goblin : MonoBehaviour
         }
 
         modelo = transform.Find("Modelo");
+        animator = modelo.GetComponent<Animator>();
         lr = GetComponent<LineRenderer>();
         lr.positionCount = puntosTrayectoriaSuelo.Length;
         lr.startColor = new Color(0, 0, 0, 0);
@@ -72,10 +73,14 @@ public class Goblin : MonoBehaviour
             cc.Move(direccionRodar * Time.deltaTime * Global.VelocidadRodar);
 
             if (Time.time - tInicioRodar > Global.TiempoRodar)
+            {
                 rodando = false;
+            }
 
             return;
         }
+        else
+            animator.SetBool("Rodando", false);
 
         // movimiento direccional
         Vector3 direccion = Vector3.zero;
@@ -91,12 +96,15 @@ public class Goblin : MonoBehaviour
             Quaternion rotacionObjetivo = Quaternion.LookRotation(direccion, Vector3.up);
             if (modelo)
             {
-                if(apuntando)
+                if (apuntando)
                     modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacionApuntando);
                 else
                     modelo.rotation = Quaternion.RotateTowards(modelo.rotation, rotacionObjetivo, Time.deltaTime * Global.VelocidadRotacion);
             }
+            animator.SetFloat("Velocidad", 1);
         }
+        else
+            animator.SetFloat("Velocidad", 0);
 
         // ==========================
         //  Lanzamiento
@@ -105,6 +113,7 @@ public class Goblin : MonoBehaviour
         {
             apuntando = true;
             circulo = Instantiate(GestorJuego.instance.prefabCirculo, transform.position, Quaternion.Euler(90, 0, 0));
+            animator.SetTrigger("IniciarLanzamiento");
         }
 
         if(apuntando)
@@ -140,6 +149,8 @@ public class Goblin : MonoBehaviour
             lr.endColor = new Color(0, 0, 0, 0);
 
             Destroy(circulo);
+
+            animator.SetTrigger("Lanzar");
         }
 
         if (Input.GetButtonUp(nombresInput.BOTON_B))
@@ -148,6 +159,7 @@ public class Goblin : MonoBehaviour
             modelo.rotation = Quaternion.LookRotation(direccion, Vector3.up);
             direccionRodar = direccion;
             rodando = true;
+            animator.SetBool("Rodando", true);
         }
     }
 

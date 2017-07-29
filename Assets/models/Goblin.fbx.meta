@@ -153,6 +153,7 @@ ModelImporter:
     7400004: Idle
     7400006: Trhow
     7400008: Roll
+    7400010: Carga
     9500000: //RootNode
     13700000: Cuerpo
     13700002: Pechera
@@ -671,6 +672,168 @@ ModelImporter:
       takeName: Esqueleto|EsqueletoAction.002
       firstFrame: 120
       lastFrame: 147
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Cuerpo
+        weight: 1
+      - path: Esqueleto
+        weight: 1
+      - path: Esqueleto/Base
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.L
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.L/Codo.L
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.L/Codo.L/Codo.L_end
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.R
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.R/Codo.R
+        weight: 1
+      - path: Esqueleto/Base/ManoIK.R/Codo.R/Codo.R_end
+        weight: 1
+      - path: Esqueleto/Base/PieIK.L
+        weight: 1
+      - path: Esqueleto/Base/PieIK.L/Rodilla.L
+        weight: 1
+      - path: Esqueleto/Base/PieIK.L/Rodilla.L/Rodilla.L_end
+        weight: 1
+      - path: Esqueleto/Base/PieIK.R
+        weight: 1
+      - path: Esqueleto/Base/PieIK.R/Rodilla.R
+        weight: 1
+      - path: Esqueleto/Base/PieIK.R/Rodilla.R/Rodilla.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.L/Pierna.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.L/Pierna.L/Pie.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.L/Pierna.L/Pie.L/Pie.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.R/Pierna.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.R/Pierna.R/Pie.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Muslo.R/Pierna.R/Pie.R/Pie.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombreras
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Anular1.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Anular1.L/Anular2.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Anular1.L/Anular2.L/Anular2.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Corazon1.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Corazon1.L/Corazon2.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Corazon1.L/Corazon2.L/Corazon2.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Indice1.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Indice1.L/Indice2.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Indice1.L/Indice2.L/Indice2.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pinky1.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pinky1.L/Pinky2.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pinky1.L/Pinky2.L/Pinky2.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pulgar1.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pulgar1.L/Pulgar2.L
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.L/Brazo.L/Pulgar1.L/Pulgar2.L/Pulgar2.L_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Anular1.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Anular1.R/Anular2.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Anular1.R/Anular2.R/Anular2.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Corazon1.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Corazon1.R/Corazon2.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Corazon1.R/Corazon2.R/Corazon2.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Indice1.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Indice1.R/Indice2.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Indice1.R/Indice2.R/Indice2.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pinky1.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pinky1.R/Pinky2.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pinky1.R/Pinky2.R/Pinky2.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pulgar1.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pulgar1.R/Pulgar2.R
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Hombro.R/Brazo.R/Pulgar1.R/Pulgar2.R/Pulgar2.R_end
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Neck
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Neck/Head
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Neck/Head/Cacerola
+        weight: 1
+      - path: Esqueleto/Base/Root/Spine/Neck/Head/Head_end
+        weight: 1
+      - path: Pechera
+        weight: 1
+      - path: Taparrabo
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Carga
+      takeName: Esqueleto|EsqueletoAction.002
+      firstFrame: 72
+      lastFrame: 81
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
