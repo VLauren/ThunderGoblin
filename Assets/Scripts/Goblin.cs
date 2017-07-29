@@ -124,4 +124,10 @@ public class Goblin : MonoBehaviour
             Destroy(circulo);
         }
     }
+
+    public void Morir()
+    {
+        Debug.Log("MUERTE jugador " + jugador);
+        Destroy(gameObject);
+    }
 }

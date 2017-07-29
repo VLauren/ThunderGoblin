@@ -14,6 +14,9 @@ public class Gestor : MonoBehaviour
     public GameObject prefabCirculo;
     public GameObject prefabPararrayos;
 
+    public GameObject prefabRayoA;
+    public GameObject prefabRayoB;
+
     private float tiempoUltimoRayo = 0;
     private bool rayosActivos;
 

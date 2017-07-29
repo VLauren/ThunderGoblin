@@ -13,4 +13,5 @@ public class Global
     public const float VelocidadProyectil = 30f;
 
     public const float PeriodoRayo = 4;
+    public const float AlcanceRayo = 5;
 }
