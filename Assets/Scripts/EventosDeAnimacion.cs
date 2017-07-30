@@ -19,8 +19,8 @@ public class EventosDeAnimacion : MonoBehaviour
     {
         // Debug.Log("Rodar!");
         if (transform.parent.GetComponent<Goblin>().jugador == Goblin.Jugador.UNO)
-            Sonido.PlaySonido("Rodar1", 0.7f);
+            Sonido.PlaySonido("Rodar1");
         if (transform.parent.GetComponent<Goblin>().jugador == Goblin.Jugador.DOS)
-            Sonido.PlaySonido("Rodar2", 0.7f);
+            Sonido.PlaySonido("Rodar2");
     }
 }

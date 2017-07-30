@@ -8,7 +8,7 @@ public class Sonido : MonoBehaviour
 
     private Dictionary<string,AudioSource> sources;
 
-    static float volumenFX = 0.6f;
+    static float volumenFX = 0.4f;
 
     private void Awake()
     {
