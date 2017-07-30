@@ -29,7 +29,11 @@ public class Pararrayos : MonoBehaviour
         // matar
         foreach (Goblin g in goblins)
             if (g != null && Vector3.Distance(transform.position, g.transform.position) < Global.AlcanceRayo)
-                g.Morir(); 
+                g.Morir();
+
+        // sonido
+        Sonido.PlaySonido("Rayo");
+        Sonido.PlaySonido("Circulo");
     }
 
     private void Destruir()

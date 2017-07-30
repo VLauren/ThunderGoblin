@@ -22,6 +22,7 @@ public class Proyectil : MonoBehaviour
         distanciaLanzamiento = distancia;
 
         jugador = jug;
+        Sonido.PlaySonido("Lanza");
     }
 
     private void Update()
@@ -54,6 +55,7 @@ public class Proyectil : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Sonido.PlaySonido("Pararrayos");
         Instantiate(GestorJuego.instance.prefabPararrayos, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
