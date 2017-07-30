@@ -42,12 +42,12 @@ public class Sonido : MonoBehaviour
             fuente.PlayOneShot(Resources.Load("FX/goblin2_muere" + Random.Range(1, 3)) as AudioClip, vol);
         if (sonido == "Circulo")
             fuente.PlayOneShot(Resources.Load("FX/circulo_electrico" + Random.Range(1, 3)) as AudioClip, vol);
-        //if (sonido == "Trueno")
-            //fuente.PlayOneShot(Resources.Load("FX/trueno" + Random.Range(1, 3)) as AudioClip, vol);
-        // if (sonido == "Paso1")
-            // fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 3)) as AudioClip, vol);
-        // if (sonido == "Paso2")
-            // fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 3)) as AudioClip, vol);
+        if (sonido == "Trueno")
+            fuente.PlayOneShot(Resources.Load("FX/trueno") as AudioClip, vol);
+        if (sonido == "Paso1")
+            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol);
+        if (sonido == "Paso2")
+            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol);
 
     }
 
