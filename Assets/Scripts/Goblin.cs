@@ -193,6 +193,7 @@ public class Goblin : MonoBehaviour
     {
         Debug.Log("MUERTE jugador " + jugador);
         GestorJuego.TerminarRonda();
+        GestorJuego.CrearMuerto(jugador, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }

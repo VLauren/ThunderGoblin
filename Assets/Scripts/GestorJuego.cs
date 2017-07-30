@@ -19,9 +19,13 @@ public class GestorJuego : MonoBehaviour
     public GameObject prefabRayoA;
     public GameObject prefabRayoB;
 
+    public GameObject prefabMuertoJ1;
+    public GameObject prefabMuertoJ2;
+
     private float tiempoUltimoRayo = 0;
     private bool rayosActivos;
     private bool rondaAcabada = false;
+    private GameObject muerto;
 
     void Awake()
     {
@@ -31,6 +35,7 @@ public class GestorJuego : MonoBehaviour
     private void Start()
     {
         SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
+        Fade.In();
     }
 
     private void Update()
@@ -40,6 +45,23 @@ public class GestorJuego : MonoBehaviour
             tiempoUltimoRayo = Time.time;
             if(OnRayo != null)
                 OnRayo();
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (OnReload != null)
+                OnReload();
+
+            OnRayo = null;
+            OnReload = null;
+
+            SceneManager.UnloadScene("Juego");
+            rondaAcabada = false;
+            if (muerto != null)
+                Destroy(muerto);
+
+            SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
+            Fade.In();
         }
     }
 
@@ -58,7 +80,8 @@ public class GestorJuego : MonoBehaviour
         if(!instance.rondaAcabada)
         {
             instance.rondaAcabada = true;
-            instance.Invoke("ReiniciarEscena", 1);
+            instance.Invoke("FadeOut", 2f);
+            instance.Invoke("ReiniciarEscena", 2.5f);
         }
     }
 
@@ -74,5 +97,22 @@ public class GestorJuego : MonoBehaviour
         SceneManager.LoadScene("Juego", LoadSceneMode.Additive);
         ActivarRayos();
         rondaAcabada = false;
+        if (muerto != null)
+            Destroy(muerto);
+        
+        Fade.In();
+    }
+
+    void FadeOut()
+    {
+        Fade.Out();
+    }
+
+    public static void CrearMuerto(Goblin.Jugador jugador, Vector3 posicion, Quaternion rotacion)
+    {
+        if (jugador == Goblin.Jugador.UNO)
+            instance.muerto = Instantiate(instance.prefabMuertoJ1, posicion, rotacion).gameObject;
+        if (jugador == Goblin.Jugador.DOS)
+            instance.muerto = Instantiate(instance.prefabMuertoJ2, posicion, rotacion).gameObject;
     }
 }
