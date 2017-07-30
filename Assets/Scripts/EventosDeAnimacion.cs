@@ -7,7 +7,12 @@ public class EventosDeAnimacion : MonoBehaviour
 
     void Paso()
     {
-        // Debug.Log("Paso!");
+        if (transform.parent.GetComponent<Goblin>().jugador == Goblin.Jugador.UNO)
+            Sonido.PlaySonido("Paso1");
+        if (transform.parent.GetComponent<Goblin>().jugador == Goblin.Jugador.DOS)
+            Sonido.PlaySonido("Paso2");
+
+        Instantiate(GestorJuego.instance.prefabHumoA, transform.position, Quaternion.Euler(-90, 0, 0));
     }
 
     void Rodar()

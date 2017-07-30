@@ -23,6 +23,8 @@ public class Proyectil : MonoBehaviour
 
         jugador = jug;
         Sonido.PlaySonido("Lanza");
+
+        GestorJuego.instance.OnReload += Destruir;
     }
 
     private void Update()
@@ -57,6 +59,13 @@ public class Proyectil : MonoBehaviour
     {
         Sonido.PlaySonido("Pararrayos");
         Instantiate(GestorJuego.instance.prefabPararrayos, transform.position, Quaternion.identity);
+        GestorJuego.instance.OnReload -= Destruir;
+        Destroy(gameObject);
+    }
+
+    void Destruir()
+    {
+        GestorJuego.instance.OnReload -= Destruir;
         Destroy(gameObject);
     }
 }

@@ -22,6 +22,9 @@ public class GestorJuego : MonoBehaviour
     public GameObject prefabMuertoJ1;
     public GameObject prefabMuertoJ2;
 
+    public GameObject prefabHumoA;
+    public GameObject prefabHumoB;
+
     private float tiempoUltimoRayo = 0;
     private bool rayosActivos;
     private bool rondaAcabada = false;
@@ -62,6 +65,8 @@ public class GestorJuego : MonoBehaviour
 
             SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
             Fade.In();
+
+            Sonido.PararMusica();
         }
     }
 

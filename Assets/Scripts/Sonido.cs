@@ -42,5 +42,22 @@ public class Sonido : MonoBehaviour
             fuente.PlayOneShot(Resources.Load("FX/goblin2_muere" + Random.Range(1, 3)) as AudioClip, vol);
         if (sonido == "Circulo")
             fuente.PlayOneShot(Resources.Load("FX/circulo_electrico" + Random.Range(1, 3)) as AudioClip, vol);
+        //if (sonido == "Trueno")
+            //fuente.PlayOneShot(Resources.Load("FX/trueno" + Random.Range(1, 3)) as AudioClip, vol);
+        // if (sonido == "Paso1")
+            // fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 3)) as AudioClip, vol);
+        // if (sonido == "Paso2")
+            // fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 3)) as AudioClip, vol);
+
+    }
+
+    public static void IniciarMusica()
+    {
+        instancia.transform.Find("Musica").GetComponent<AudioSource>().Play();
+    }
+
+    public static void PararMusica()
+    {
+        instancia.transform.Find("Musica").GetComponent<AudioSource>().Stop();
     }
 }

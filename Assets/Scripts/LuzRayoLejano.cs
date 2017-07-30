@@ -30,6 +30,7 @@ public class LuzRayoLejano : MonoBehaviour
 
     IEnumerator Parpadeo()
     {
+        Sonido.PlaySonido("Trueno");
         for (int i = 0; i < 3; i++)
         {
             luz.enabled = true;

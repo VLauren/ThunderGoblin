@@ -7,6 +7,9 @@ public class Menu : MonoBehaviour
 {
     bool iniciado;
 
+    public GameObject pantalla1;
+    public GameObject pantalla2;
+
     private void Start()
     {
         iniciado = false;
@@ -16,8 +19,16 @@ public class Menu : MonoBehaviour
     {
         if (Input.anyKeyDown && !iniciado)
         {
-            iniciado = true;
-            StartCoroutine(Iniciar());
+            if(pantalla1.activeSelf)
+            {
+                pantalla1.SetActive(false);
+                pantalla2.SetActive(true);
+            }
+            else
+            {
+                iniciado = true;
+                StartCoroutine(Iniciar());
+            }
         }
     }
 
@@ -31,5 +42,6 @@ public class Menu : MonoBehaviour
         SceneManager.UnloadScene("Menu");
         GestorJuego.ActivarRayos();
         Fade.In();
+        Sonido.IniciarMusica();
     }
 }
