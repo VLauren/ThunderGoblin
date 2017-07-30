@@ -28,11 +28,12 @@ public class GestorJuego : MonoBehaviour
     private float tiempoUltimoRayo = 0;
     private bool rayosActivos;
     private bool rondaAcabada = false;
-    private GameObject muerto;
+    private List<GameObject> muertos;
 
     void Awake()
     {
         instance = this;
+        muertos = new List<GameObject>();
     }
 
     private void Start()
@@ -60,8 +61,9 @@ public class GestorJuego : MonoBehaviour
 
             SceneManager.UnloadScene("Juego");
             rondaAcabada = false;
-            if (muerto != null)
-                Destroy(muerto);
+            foreach (GameObject go in muertos)
+                Destroy(go);
+            muertos.Clear();
 
             SceneManager.LoadScene("Menu", LoadSceneMode.Additive);
             Fade.In();
@@ -102,9 +104,10 @@ public class GestorJuego : MonoBehaviour
         SceneManager.LoadScene("Juego", LoadSceneMode.Additive);
         ActivarRayos();
         rondaAcabada = false;
-        if (muerto != null)
-            Destroy(muerto);
-        
+        foreach (GameObject go in muertos)
+            Destroy(go);
+        muertos.Clear();
+
         Fade.In();
     }
 
@@ -116,8 +119,8 @@ public class GestorJuego : MonoBehaviour
     public static void CrearMuerto(Goblin.Jugador jugador, Vector3 posicion, Quaternion rotacion)
     {
         if (jugador == Goblin.Jugador.UNO)
-            instance.muerto = Instantiate(instance.prefabMuertoJ1, posicion, rotacion).gameObject;
+            instance.muertos.Add(Instantiate(instance.prefabMuertoJ1, posicion, rotacion).gameObject);
         if (jugador == Goblin.Jugador.DOS)
-            instance.muerto = Instantiate(instance.prefabMuertoJ2, posicion, rotacion).gameObject;
+            instance.muertos.Add(Instantiate(instance.prefabMuertoJ2, posicion, rotacion).gameObject);
     }
 }

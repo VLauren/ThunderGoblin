@@ -8,6 +8,8 @@ public class Sonido : MonoBehaviour
 
     private Dictionary<string,AudioSource> sources;
 
+    static float volumenFX = 0.8f;
+
     private void Awake()
     {
         instancia = this;
@@ -27,27 +29,27 @@ public class Sonido : MonoBehaviour
         AudioSource fuente = instancia.sources[sonido];
 
         if (sonido == "Rodar1")
-            fuente.PlayOneShot(Resources.Load("FX/goblin1_rueda" + Random.Range(1, 5)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/goblin1_rueda" + Random.Range(1, 5)) as AudioClip, vol * volumenFX);
         if (sonido == "Rodar2")
-            fuente.PlayOneShot(Resources.Load("FX/goblin2_rueda" + Random.Range(1, 5)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/goblin2_rueda" + Random.Range(1, 5)) as AudioClip, vol * volumenFX);
         if (sonido == "Rayo")
-            fuente.PlayOneShot(Resources.Load("FX/rayo" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/rayo" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Pararrayos")
-            fuente.PlayOneShot(Resources.Load("FX/pararrayos_cae" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/pararrayos_cae" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Lanza")
-            fuente.PlayOneShot(Resources.Load("FX/lanza" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/lanza" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Morir1")
-            fuente.PlayOneShot(Resources.Load("FX/goblin1_muere" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/goblin1_muere" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Morir2")
-            fuente.PlayOneShot(Resources.Load("FX/goblin2_muere" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/goblin2_muere" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Circulo")
-            fuente.PlayOneShot(Resources.Load("FX/circulo_electrico" + Random.Range(1, 3)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/circulo_electrico" + Random.Range(1, 3)) as AudioClip, vol * volumenFX);
         if (sonido == "Trueno")
-            fuente.PlayOneShot(Resources.Load("FX/trueno") as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/trueno") as AudioClip, vol * volumenFX);
         if (sonido == "Paso1")
-            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol * volumenFX);
         if (sonido == "Paso2")
-            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol);
+            fuente.PlayOneShot(Resources.Load("FX/paso" + Random.Range(1, 9)) as AudioClip, vol * volumenFX);
 
     }
 

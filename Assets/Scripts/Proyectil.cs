@@ -24,6 +24,7 @@ public class Proyectil : MonoBehaviour
         jugador = jug;
         Sonido.PlaySonido("Lanza");
 
+        GestorJuego.instance.OnReload -= Destruir;
         GestorJuego.instance.OnReload += Destruir;
     }
 

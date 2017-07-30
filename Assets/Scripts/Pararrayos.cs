@@ -10,6 +10,7 @@ public class Pararrayos : MonoBehaviour
     {
         GestorJuego.instance.OnRayo += RecibirRayo;
         goblins = FindObjectsOfType<Goblin>();
+        GestorJuego.instance.OnReload -= Destruir;
         GestorJuego.instance.OnReload += Destruir;
     }
 
