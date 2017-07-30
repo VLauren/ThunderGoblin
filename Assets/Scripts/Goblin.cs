@@ -159,7 +159,7 @@ public class Goblin : MonoBehaviour
                 StartCoroutine(Lanzar());
         }
 
-        if (Input.GetButtonUp(nombresInput.BOTON_B))
+        if (Input.GetButtonUp(nombresInput.BOTON_B) && !apuntando)
         {
             tInicioRodar = Time.time;
             modelo.rotation = Quaternion.LookRotation(direccion, Vector3.up);
@@ -200,6 +200,8 @@ public class Goblin : MonoBehaviour
         if (jugador == Jugador.DOS)
             Sonido.PlaySonido("Morir2");
 
+        if(circulo != null)
+            Destroy(circulo);
         Destroy(gameObject);
     }
 }

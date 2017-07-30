@@ -15,6 +15,10 @@ public class TTL : MonoBehaviour
 	void Destruir ()
     {
         Destroy(gameObject);
+
+        // HACK
+        if(GetComponent<Proyectil>() != null)
+            GestorJuego.instance.OnReload -= GetComponent<Proyectil>().Destruir;
 	}
 
     private void Update()

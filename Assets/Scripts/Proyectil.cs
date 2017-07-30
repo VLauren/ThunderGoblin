@@ -64,7 +64,7 @@ public class Proyectil : MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Destruir()
+    public void Destruir()
     {
         GestorJuego.instance.OnReload -= Destruir;
         Destroy(gameObject);
